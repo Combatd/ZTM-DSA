@@ -33,4 +33,3 @@ function logFirstTwoBoxes(boxes) {
     if (boxes.length > 0)console.log(boxes[0]); // O(1)
     if (boxes.length > 1) console.log(boxes[1]); // O(1)
 }
-
