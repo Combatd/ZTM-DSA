@@ -38,6 +38,7 @@ const array4 = ['z', 'y', 'x'];
 // Space: O(n) - creating a new hash map and adding n elements from arr1
 function containsCommonItem(arr1, arr2) {
   // loop through arr1 and create object where properties === items in the array - O(a)
+  // can we assume 2 parameters in the function?
   const map = {};
   for (let i = 0; i < arr1.length; i++) {
     if(!map[arr1[i]]) {
@@ -56,3 +57,10 @@ function containsCommonItem(arr1, arr2) {
 
 console.log(containsCommonItem(array1, array2));
 console.log(containsCommonItem(array3, array4));
+
+function containsCommonItem3(arr1, arr2) {
+  return arr1.some(item => arr2.includes(item));
+}
+
+console.log(containsCommonItem3(array1, array2));
+console.log(containsCommonItem3(array3, array4));
