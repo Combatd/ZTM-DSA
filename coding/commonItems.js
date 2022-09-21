@@ -14,15 +14,31 @@ const array4 = ['z', 'y', 'x'];
 // 2 paramaters - always going to be an array
 // returns true or false, a boolean
 
+// function containsCommonItem(arr1, arr2) {
+//   for (let i = 0; i < arr1.length; i++) {
+//     for (let j = 0; j < arr2.length; j++) {
+//       if (arr1[i] === arr2[j]) {
+//         return true;
+//       }
+//     }
+//   }
+//   return false;
+// }
+
+// array1 is going to be converted into an object keys
+// {}
+// a: true,
+// b: true,
+// c: true,
+// x: true
+// }
+// array2[index] === obj.properties
+
+// Time: O(a + b)
 function containsCommonItem(arr1, arr2) {
-  for (let i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr2.length; j++) {
-      if (arr1[i] === arr2[j]) {
-        return true;
-      }
-    }
-  }
-  return false;
+  // loop through arr1 and create object where properties === items in the array - O(a)
+
+  // loop through arr2 and check if item in arr2 exists on object O(b)
 }
 
 console.log(containsCommonItem(array1, array2));
