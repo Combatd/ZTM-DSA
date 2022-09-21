@@ -35,10 +35,23 @@ const array4 = ['z', 'y', 'x'];
 // array2[index] === obj.properties
 
 // Time: O(a + b)
+// Space: O(n) - creating a new hash map and adding n elements from arr1
 function containsCommonItem(arr1, arr2) {
   // loop through arr1 and create object where properties === items in the array - O(a)
-
-  // loop through arr2 and check if item in arr2 exists on object O(b)
+  const map = {};
+  for (let i = 0; i < arr1.length; i++) {
+    if(!map[arr1[i]]) {
+      const item = arr1[i];
+      map[item] = true;
+    }
+  }
+  // loop through arr2 and check if item in arr2 exists on object - O(b)
+  for (let j = 0; j < arr2.length; j++) {
+    if (map[arr2[j]]) {
+      return true;
+    }
+  }
+  return false;
 }
 
 console.log(containsCommonItem(array1, array2));
