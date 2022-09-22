@@ -27,11 +27,28 @@ class MyArray {
     this.length--;
     return lastItem;
   }
+
+  delete(index) {
+    const item = this.data[index];
+    this.shiftItems(index);
+  }
+
+  shiftItems = function(index) {
+    for (let i = index; i < this.length; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    delete this.data[this.length - 1];
+    this.length--;
+  }
 }
 
 const newArray = new MyArray();
 console.log(newArray);
 console.log(newArray.push('hi'));
+console.log(newArray.push('you'));
 console.log(newArray.get(0));
+newArray.push('are')
+newArray.push('nice')
 newArray.push('!');;
-console.log(newArray.pop(), "<-- remove");
+newArray.delete(1);
+console.log(newArray);
