@@ -20,4 +20,9 @@ function reverse(str) {
   return backwards.join('');
 }
 
+function reverse2(str) {
+  return str.split('').reverse().join('');
+}
+
 console.log(reverse('Hi My name is Andrei'));
+console.log(reverse2('Hi My name is Andrei'));
