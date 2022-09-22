@@ -19,3 +19,7 @@ console.log(strings);
 // splice
 strings.splice(2, 0, 'alien'); // Time: O(n)
 console.log(strings);
+
+// C++
+// int a[20];
+// int b[5] {1, 2, 3, 4, 5}
