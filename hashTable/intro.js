@@ -17,3 +17,6 @@ hash collision
 O(n / k), where k is the size of the hash table
 Simplifies to O(n)
 */
+
+const a = new Map(); // map maintains insertion order
+const b = new Set(); // set is like map but stores keys, no values
