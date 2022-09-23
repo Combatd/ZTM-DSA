@@ -25,3 +25,18 @@ function firstRecurringCharacter(array) {
 console.log(firstRecurringCharacter([2, 5, 1, 2, 3, 5, 1, 2, 4]));
 console.log(firstRecurringCharacter([2, 1, 1, 2, 3, 5, 1, 2, 4]));
 console.log(firstRecurringCharacter([2, 3, 4, 5]));
+
+function firstRecurringCharacter2(array) {
+  const visitedNumbers = {};
+
+  for (let i = 0; i < array.length; i++) {
+    if (visitedNumbers[array[i]]) {
+      return array[i];
+    } else {
+      visitedNumbers[array[i]] = i; // if we want to store the index
+    }
+  }
+  return undefined;
+} 
+// Time: O(n)
+// Space: O(n)
