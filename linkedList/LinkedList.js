@@ -77,6 +77,9 @@ class LinkedList {
   }
 
   remove(index) {
+    if (!this.head) {
+      return undefined;
+    }
     const leader = this.traverseToIndex(index - 1);
     const unwantedNode = leader.next;
     leader.next = unwantedNode.next // leader.next.next
