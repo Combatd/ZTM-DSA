@@ -90,6 +90,23 @@ class DoublyLinkedList {
     this.length--;
     return this;
   }
+
+  reverse = function() {
+    if (!this.head.next) {
+      return this;
+    }
+    let first = this.head;
+    let second = first.next;
+    while(second) {
+      const temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.head.next = null;
+    this.head = first; // after the loop, first will be the tail
+    return this;
+  }
 }
 
 const myLinkedList = new DoublyLinkedList(10);
@@ -102,4 +119,6 @@ console.log(myLinkedList.printList());
 myLinkedList.remove(2);
 console.log(myLinkedList.printList());
 myLinkedList.remove(2);
+console.log(myLinkedList.printList());
+myLinkedList.reverse();
 console.log(myLinkedList.printList());
