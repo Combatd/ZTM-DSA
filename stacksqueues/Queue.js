@@ -16,7 +16,7 @@ class Queue {
     return this.first;
   }
 
-  enqueue(value){
+  enqueue(value) {
     const newNode = new Node(value);
     if (this.length === 0) {
       this.first = newNode;
@@ -29,9 +29,21 @@ class Queue {
     return this;
   }
 
-  dequeue(){
+  dequeue() {
+    if (!this.first) {
+      return null;
+    }
+    if (this.first === this.last) {
+      this.last = null;
+    }
+    this.first = this.first.next;
+    this.length--;
+    return this;
   }
-  //isEmpty;
+  
+  isEmpty() {
+    return this.length === 0;
+  }
 }
 
 const myQueue = new Queue();
@@ -40,5 +52,5 @@ myQueue.enqueue('Joy');
 myQueue.enqueue('Matt');
 myQueue.enqueue('Pavel');
 myQueue.enqueue('Samir');
-
-
+console.log(myQueue.peek());
+console.log(myQueue.dequeue());
