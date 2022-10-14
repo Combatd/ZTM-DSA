@@ -192,6 +192,7 @@ console.log(tree.breadthFirstSearchR([tree.root], []));
 // JSON.stringify(traverseInOrder(tree.root, []))
 console.log(tree.DFSInorder());
 console.log(tree.DFSPostorder());
+console.log(tree.DFSPreorder());
 
 //     9
 //  4     20
@@ -201,7 +202,7 @@ function traverseInOrder(node, list) {
   if (node.left) {
     traverseInOrder(node.left, list);
   }
-  list.push(node.value)
+  list.push(node.value);
   if (node.right) {
     traverseInOrder(node.right, list);
   }
@@ -215,6 +216,17 @@ function traversePostOrder(node, list) {
   if (node.right) {
     traversePostOrder(node.right, list);
   }
+  list.push(node.value);
+  return list;
+}
+
+function traversePreOrder(node, list) {
   list.push(node.value)
+  if (node.left) {
+    traversePreOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePreOrder(node.right, list);
+  }
   return list;
 }
