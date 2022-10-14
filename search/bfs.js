@@ -164,6 +164,18 @@ class BinarySearchTree {
     }
     return this.breadthFirstSearchR(queue, list);
   }
+
+  DFSInorder() {
+    return traverseInOrder(this.root, []);
+  }
+
+  DFSPostorder() {
+    return traversePostOrder(this.root, []);
+  }
+
+  DFSPreorder() {
+    return traversePreOrder(this.root, []);
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -176,13 +188,33 @@ tree.insert(15)
 tree.insert(1)
 console.log(tree.breadthFirstSearch());
 console.log(tree.breadthFirstSearchR([tree.root], []));
-tree.remove(170)
-JSON.stringify(traverse(tree.root))
+// tree.remove(170)
+// JSON.stringify(traverseInOrder(tree.root, []))
+console.log(tree.DFSInorder());
+console.log(tree.DFSPostorder());
 
 //     9
 //  4     20
 //1  6  15  170
 
-function traverse(node) {
+function traverseInOrder(node, list) {
+  if (node.left) {
+    traverseInOrder(node.left, list);
+  }
+  list.push(node.value)
+  if (node.right) {
+    traverseInOrder(node.right, list);
+  }
+  return list;
+}
 
+function traversePostOrder(node, list) {
+  if (node.left) {
+    traversePostOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePostOrder(node.right, list);
+  }
+  list.push(node.value)
+  return list;
 }
